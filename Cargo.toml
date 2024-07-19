@@ -1,0 +1,11 @@
+[package]
+name = "proxygen"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokio = { version = "*", features = ["full"] }
+env_logger ="*"
+futures = "*"
+clap = { version = "*", features = ["derive"] }
+log = "*"
