@@ -9,3 +9,4 @@ env_logger ="*"
 futures = "*"
 clap = { version = "*", features = ["derive"] }
 log = "*"
+reqwest = "*"

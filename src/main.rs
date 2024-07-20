@@ -30,11 +30,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             let (mut ri, mut wi) = inbound.split();
             let (mut ro, mut wo) = outbound.get_mut().split();
             let client_to_server = async {
-                tokio::io::copy(&mut ri, &mut wo).await.expect("client to server copy error");
+                let _ = tokio::io::copy(&mut ri, &mut wo).await;
                 wo.shutdown().await
             };
             let server_to_client = async {
-                tokio::io::copy(&mut ro, &mut wi).await.expect("server to client copy error");
+                let _ = tokio::io::copy(&mut ro, &mut wi).await;
                 wi.shutdown().await
             };
             let _ = futures::future::try_join(client_to_server, server_to_client).await;
