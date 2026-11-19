@@ -5,8 +5,8 @@ edition = "2021"
 
 [dependencies]
 tokio = { version = "*", features = ["full"] }
-env_logger ="*"
-futures = "*"
+env_logger = "*"
 clap = { version = "*", features = ["derive"] }
 log = "*"
-reqwest = "*"
+socket2 = "0.5"
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls", "socks"] }
